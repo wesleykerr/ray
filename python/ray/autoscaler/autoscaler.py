@@ -593,7 +593,7 @@ class StandardAutoscaler(object):
             cluster_name=self.config["cluster_name"],
             file_mounts=self.config["file_mounts"],
             initialization_commands=with_head_node_ip(
-                self.config["initialization_commands"]),
+                self.config.get("initialization_commands", [])),
             setup_commands=with_head_node_ip(init_commands),
             runtime_hash=self.runtime_hash,
             process_runner=self.process_runner,
